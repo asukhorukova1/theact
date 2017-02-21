@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="styles/styles.css">
+	<style>
+@font-face { font-family: DecimaMonoX; src: url('styles/fonts/DecimaMonoX.otf'); } 
+body {
+font-family: DecimaMonoX;
+/*cursor: url('styles/penis3.png'), default;*/
+/*background-color: black;
+color: white;*/
+}
+</style>
+</head>
+<body>
+	<div class ="mainmenu">
+		<p class="maintext">
+		The Act</p>
+		<div class="showtext">
+			read the script
+			<img class="active" src="styles/active.png">
+		</div>
+				<div class="about">
+			about
+
+			<img class="aboutactive" src="styles/active.png">
+
+	</div>
+		<div class="abouthidden">
+				My idea is based on Slavoj Zizek's thoughts on sexual fantasies, and how the worst thing that can happen to one is if it's comes to life. Together with that he always mentioned an anecdote which describes an ultimate date scenario, in which he asks a woman out, and when they come home together, she takes out a dildo, he takes out an electronic vagina, and the toys have sex for them while the couple continues enjoying the dinner. I wrote a text of two parts reenacting this situation.
+		</div>
+	<div class="scriptscroll">
+<!-- 		<img src="styles/Scan_16 копия.jpg"> -->
+<!-- 		<div id="showscroll" style="opacity:0"> -->
+		<img src="styles/actplaywebsitescroll5.jpg" >
+<!-- 	</div> -->
+	</div>
+<div class="actors">
+	<p class ="expln">
+	Please choose actors to listen to the performance:
+	</p>
+	<div class ="player1">
+		Narrator #1:
+		<div class="actor one" style = "padding-top: 5px">Carolina <img class="narratoroneunderline under1" style="right: 130px" src="styles/outline5.png"></div>
+		<div class="actor two" >Lukas<img class="narratoroneunderline under2" src="styles/outline5.png"></div>
+		<div class="actor three">Jan<img class="narratoroneunderline under3" style="right: 90px" src="styles/outline5.png"></div>
+		<div class="actor four">Asya<img class="narratoroneunderline under4" src="styles/outline5.png"></div>
+	</div>
+	<div class ="player2">
+		Narrator #2:
+		<div class="actor five" style = "padding-top: 5px">Jan<img class="narratoroneunderline under5" style="right: 90px" src="styles/outline1.png"></div>
+		<div class="actor six">Asya<img class="narratoroneunderline under6" src="styles/outline1.png"></div>
+		<div class="actor seven">Carolina<img class="narratoroneunderline under7" style="right: 130px" src="styles/outline1.png"></div>
+		<div class="actor eight">Lukas<img class="narratoroneunderline under8"  src="styles/outline1.png"></div>
+	</div>
+	<div class ="player3">
+		Character #1:
+		<div class="actor nine"style = "padding-top: 5px">Asya<img class="narratoroneunderline under9" src="styles/outline3.png" style="padding-top:2px"></div>
+		<div class="actor ten">Jan<img class="narratoroneunderline under10" style="right: 90px" src="styles/outline3.png" style="padding-top:2px"></div>
+		<div class="actor eleven">Lukas<img class="narratoroneunderline under11" src="styles/outline3.png"></div>
+		<div class="actor twelve">Carolina<img class="narratoroneunderline under12" style="right: 130px" src="styles/outline3.png"></div>
+	</div>
+	<div class ="player4">
+		Character #2:
+		<div class="actor thirteen" style = "padding-top: 5px">Lukas<img class="narratoroneunderline under13" src="styles/outline4.png"></div>
+		<div class="actor fourteen">Carolina <img class="narratoroneunderline under14" style="right: 130px" src="styles/outline4.png"></div>
+		<div class="actor fifteen">Asya<img class="narratoroneunderline under15" src="styles/outline4.png"></div>
+		<div class="actor sixteen">Jan<img class="narratoroneunderline under16" style="right: 90px" src="styles/outline4.png"></div>
+	</div>
+
+
+</div>
+	<div class="playbutton">
+	PLAY
+	</div>
+	<div class="pausebutton">
+	PAUSE
+	</div>
+
+
+         <div id="info">
+            <span style="float:left;" id="duration"></span><span style="float:right;" id="timeleft"></span>
+            
+         </div>
+
+
+
+
+	<script src="jquery/jquery.js"></script>
+		<script>
+
+$(document).ready(function(){
+    $(".scriptscroll").hide();
+    $(".active").hide();
+    $(".aboutactive").hide();
+    $(".narratoroneunderline").hide();
+    $(".abouthidden").hide();
+    $(".pausebutton").hide();
+
+    var snd1  = new Audio();
+	var src1  = document.createElement("source");
+    src1.type = "audio/mpeg";
+	src1.src  = "audio/carolina2.ogg";
+	snd1.appendChild(src1);
+	snd1.volume = 0;
+
+	var snd2  = new Audio();
+	var src2  = document.createElement("source");
+	src2.type = "audio/mpeg";
+	src2.src  = "audio/lukas2.wav";
+	snd2.appendChild(src2);	
+	snd2.volume = 0;
+
+	var snd3  = new Audio();
+	var src3  = document.createElement("source");
+    src3.type = "audio/mpeg";
+	src3.src  = "audio/jan2.wav";
+	snd3.appendChild(src3);
+	snd3.volume = 0;
+
+	var snd4  = new Audio();
+	var src4  = document.createElement("source");
+    src4.type = "audio/mpeg";
+	src4.src  = "audio/asya2.wav";
+	snd4.appendChild(src4);
+	snd4.volume = 0;
+
+	var snd5  = new Audio();
+	var src5  = document.createElement("source");
+    src5.type = "audio/mpeg";
+	src5.src  = "audio/jan1.wav";
+	snd5.appendChild(src5);
+	snd5.volume = 0;
+
+	var snd7  = new Audio();
+	var src7  = document.createElement("source");
+    src7.type = "audio/mpeg";
+	src7.src  = "audio/asya1.ogg";
+	snd7.appendChild(src7);
+	snd7.volume = 0;
+
+	var snd8  = new Audio();
+	var src8  = document.createElement("source");
+    src8.type = "audio/mpeg";
+	src8.src  = "audio/carolina1.wav";
+	snd8.appendChild(src8);
+	snd8.volume = 0;
+
+	var snd9  = new Audio();
+	var src9  = document.createElement("source");
+    src9.type = "audio/mpeg";
+	src9.src  = "audio/lukas1.wav";
+	snd9.appendChild(src9);
+	snd9.volume = 0;
+
+	var snd10  = new Audio();
+	var src10 = document.createElement("source");
+    src10.type = "audio/mpeg";
+	src10.src  = "audio/asya3.wav";
+	snd10.appendChild(src10);
+	snd10.volume = 0;
+	
+	var snd11  = new Audio();
+	var src11 = document.createElement("source");
+    src11.type = "audio/mpeg";
+	src11.src  = "audio/jan3.wav";
+	snd11.appendChild(src11);
+	snd11.volume = 0;
+
+	var snd12  = new Audio();
+	var src12 = document.createElement("source");
+    src12.type = "audio/mpeg";
+	src12.src  = "audio/lukas3.wav";
+	snd12.appendChild(src12);
+	snd12.volume = 0;
+
+	var snd13  = new Audio();
+	var src13 = document.createElement("source");
+    src13.type = "audio/mpeg";
+	src13.src  = "audio/carolina3.wav";
+	snd13.appendChild(src13);
+	snd13.volume = 0;
+
+	var snd14  = new Audio();
+	var src14 = document.createElement("source");
+    src14.type = "audio/mpeg";
+	src14.src  = "audio/lukas4.wav";
+	snd14.appendChild(src14);
+	snd14.volume = 0;
+
+	var snd15  = new Audio();
+	var src15 = document.createElement("source");
+    src15.type = "audio/mpeg";
+	src15.src  = "audio/carolina4.wav";
+	snd15.appendChild(src15);
+	snd15.volume = 0;
+
+	var snd16  = new Audio();
+	var src16 = document.createElement("source");
+    src16.type = "audio/mpeg";
+	src16.src  = "audio/asya4.wav";
+	snd16.appendChild(src16);
+	snd16.volume = 0;
+
+	var snd17  = new Audio();
+	var src17 = document.createElement("source");
+    src17.type = "audio/mpeg";
+	src17.src  = "audio/jan4.wav";
+	snd17.appendChild(src17);
+	snd17.volume = 0;
+
+
+
+
+
+
+	var triggered = false;
+	var a = 0;
+	var b = 10;
+
+
+
+
+				
+var interval = setInterval(function(){
+	var tracktime = snd2.currentTime;
+	var scriptscroll = $(".scriptscroll");
+	var scrollscroll  = (tracktime / scriptscroll.outerHeight())*12000;
+	console.log (tracktime);
+    console.log(scrollscroll);
+    if (!triggered && tracktime > 0 ) {
+    	// for (a=1;a<=snd2.duration; a++){
+        triggered = true;
+        // alert("5.2 seconds reached");
+
+        $('.scriptscroll').animate({scrollTop:scrollscroll}, 5000);
+// if(tracktime<18){
+
+// }
+
+
+
+
+    }
+    // }
+    // }else if(tracktime > 0 && tracktime > 181 ){
+    // 	        triggered = true;
+    //     // alert("5.2 seconds reached");
+    //     var scrollscroll  = (tracktime / scriptscroll.outerHeight())*18000;
+
+    //     $('.scriptscroll').animate({scrollTop:scrollscroll}, 2500),750;
+    //     console.log("reached second part")
+    // }
+
+    else{
+    	triggered=false;
+    }
+    
+
+    // if (snd2.paused) clearInterval(interval);
+    // if (snd2.ended) clearInterval(interval);
+}, 2500);
+
+    
+
+
+
+
+
+
+
+//     var elem = $(".scriptscroll");
+//     if (elem[0].scrollHeight - elem.scrollTop() == elem.outerHeight()) {
+//         console.log("bottom");
+//         // $(".scriptscroll").scrollBy();
+//         scrollTime = setTimeout(pageScroll,scrollStep);
+//         // $(".scriptscroll").scrolldelay();
+//     };
+// };
+
+	    $(".showtext").click(function(){
+	        $(".scriptscroll").fadeToggle('fast');
+	        $(".active").fadeToggle('fast');
+
+	        console.log("lalal");      
+	    });
+	    
+	    $(".one").click(function(){
+	    	$(this).toggleClass('playone');
+	        $(".narratoroneunderline"+".under1").fadeIn('slow');
+	        $(".narratoroneunderline"+".under2").fadeOut('slow');
+	        $(".narratoroneunderline"+".under3").fadeOut('slow'); 
+	        $(".narratoroneunderline"+".under4").fadeOut('slow');
+			snd1.volume = 1;
+			snd2.volume = 0;
+			snd3.volume = 0;
+			snd4.volume = 0;
+		
+
+	    });
+	    $(".two").click(function(){
+	        $(".narratoroneunderline"+".under2").fadeIn('slow');
+	        $(".narratoroneunderline"+".under1").fadeOut('slow');
+	        $(".narratoroneunderline"+".under3").fadeOut('slow'); 
+	        $(".narratoroneunderline"+".under4").fadeOut('slow');
+			snd1.volume = 0;
+			snd2.volume = 1;
+			snd3.volume = 0;
+			snd4.volume = 0;			
+
+	    });	
+	    $(".three").click(function(){
+	        $(".narratoroneunderline"+".under3").fadeIn('slow');
+	        $(".narratoroneunderline"+".under1").fadeOut('slow');
+	        $(".narratoroneunderline"+".under2").fadeOut('slow'); 
+	        $(".narratoroneunderline"+".under4").fadeOut('slow');
+			snd1.volume = 0;
+			snd2.volume = 0;
+			snd3.volume = 1;
+			snd4.volume = 0;
+	    });	 
+	    $(".four").click(function(){
+	        $(".narratoroneunderline"+".under4").fadeIn('slow');
+	        $(".narratoroneunderline"+".under1").fadeOut('slow');
+	        $(".narratoroneunderline"+".under2").fadeOut('slow'); 
+	        $(".narratoroneunderline"+".under3").fadeOut('slow');
+
+			snd1.volume = 0;
+			snd2.volume = 0;
+			snd3.volume = 0;
+			snd4.volume = 1;
+
+	    });	
+	    $(".five").click(function(){
+	        $(".narratoroneunderline"+".under5").fadeIn('slow');
+	        $(".narratoroneunderline"+".under6").fadeOut('slow');
+	        $(".narratoroneunderline"+".under7").fadeOut('slow'); 
+	        $(".narratoroneunderline"+".under8").fadeOut('slow');
+
+			snd5.volume = 1;
+			snd7.volume = 0;
+			snd8.volume = 0;
+			snd9.volume = 0; 
+	    });	
+	    $(".six").click(function(){
+	        $(".narratoroneunderline"+".under6").fadeIn('slow');
+	        $(".narratoroneunderline"+".under5").fadeOut('slow');
+	        $(".narratoroneunderline"+".under7").fadeOut('slow'); 
+	        $(".narratoroneunderline"+".under8").fadeOut('slow');
+
+			snd5.volume = 0;
+			snd7.volume = 1;
+			snd8.volume = 0;
+			snd9.volume = 0;     
+	    });	
+	    $(".seven").click(function(){
+	        $(".narratoroneunderline"+".under7").fadeIn('slow');
+	        $(".narratoroneunderline"+".under6").fadeOut('slow');
+	        $(".narratoroneunderline"+".under5").fadeOut('slow'); 
+	        $(".narratoroneunderline"+".under8").fadeOut('slow'); 
+
+			snd5.volume = 0;
+			snd7.volume = 0;
+			snd8.volume = 1;
+			snd9.volume = 0;  
+
+	    });	
+	    $(".eight").click(function(){
+	        $(".narratoroneunderline"+".under8").fadeIn('slow');
+	        $(".narratoroneunderline"+".under6").fadeOut('slow');
+	        $(".narratoroneunderline"+".under7").fadeOut('slow'); 
+	        $(".narratoroneunderline"+".under5").fadeOut('slow');
+
+			snd5.volume = 0;
+			snd7.volume = 0;
+			snd8.volume = 0;
+			snd9.volume = 1;      
+	    });	
+	    $(".nine").click(function(){
+	        $(".narratoroneunderline"+".under9").fadeIn('slow');
+	        $(".narratoroneunderline"+".under10").fadeOut('slow');
+	        $(".narratoroneunderline"+".under11").fadeOut('slow'); 
+	        $(".narratoroneunderline"+".under12").fadeOut('slow');
+
+			snd10.volume = 1;
+			snd11.volume = 0;
+			snd12.volume = 0;
+			snd13.volume = 0;    
+	    });	
+	    $(".ten").click(function(){
+	        $(".narratoroneunderline"+".under10").fadeIn('slow');
+	        $(".narratoroneunderline"+".under9").fadeOut('slow');
+	        $(".narratoroneunderline"+".under11").fadeOut('slow'); 
+	        $(".narratoroneunderline"+".under12").fadeOut('slow');
+			snd10.volume = 0;
+			snd11.volume = 1;
+			snd12.volume = 0;
+			snd13.volume = 0;     
+	    });	
+	    $(".eleven").click(function(){
+	        $(".narratoroneunderline"+".under11").fadeIn('slow');
+	        $(".narratoroneunderline"+".under10").fadeOut('slow');
+	        $(".narratoroneunderline"+".under9").fadeOut('slow'); 
+	        $(".narratoroneunderline"+".under12").fadeOut('slow');
+			snd10.volume = 0;
+			snd11.volume = 0;
+			snd12.volume = 1;
+			snd13.volume = 0;      
+	    });	 
+	    $(".twelve").click(function(){
+	        $(".narratoroneunderline"+".under12").fadeIn('slow');
+	        $(".narratoroneunderline"+".under10").fadeOut('slow');
+	        $(".narratoroneunderline"+".under11").fadeOut('slow'); 
+	        $(".narratoroneunderline"+".under9").fadeOut('slow');
+			snd10.volume = 0;
+			snd11.volume = 0;
+			snd12.volume = 0;
+			snd13.volume = 1;     
+	    });	
+
+	    $(".thirteen").click(function(){
+	        $(".narratoroneunderline"+".under13").fadeIn('slow');
+	        $(".narratoroneunderline"+".under14").fadeOut('slow');
+	        $(".narratoroneunderline"+".under15").fadeOut('slow'); 
+	        $(".narratoroneunderline"+".under16").fadeOut('slow');
+			snd14.volume = 1;
+			snd15.volume = 0;
+			snd16.volume = 0;
+			snd17.volume = 0;     
+	    });	
+
+	    $(".fourteen").click(function(){
+	        $(".narratoroneunderline"+".under14").fadeIn('slow');
+	        $(".narratoroneunderline"+".under13").fadeOut('slow');
+	        $(".narratoroneunderline"+".under15").fadeOut('slow'); 
+	        $(".narratoroneunderline"+".under16").fadeOut('slow');
+			snd14.volume = 0;
+			snd15.volume = 1;
+			snd16.volume = 0;
+			snd17.volume = 0;     
+	    });	
+
+	    $(".fifteen").click(function(){
+	        $(".narratoroneunderline"+".under15").fadeIn('slow');
+	        $(".narratoroneunderline"+".under14").fadeOut('slow');
+	        $(".narratoroneunderline"+".under13").fadeOut('slow'); 
+	        $(".narratoroneunderline"+".under16").fadeOut('slow');
+			snd14.volume = 0;
+			snd15.volume = 0;
+			snd16.volume = 1;
+			snd17.volume = 0;     
+	    });	
+
+	    $(".sixteen").click(function(){
+	        $(".narratoroneunderline"+".under16").fadeIn('slow');
+	        $(".narratoroneunderline"+".under14").fadeOut('slow');
+	        $(".narratoroneunderline"+".under15").fadeOut('slow'); 
+	        $(".narratoroneunderline"+".under13").fadeOut('slow');
+			snd14.volume = 0;
+			snd15.volume = 0;
+			snd16.volume = 0;
+			snd17.volume = 1;     
+	    });		    	    
+
+
+	    	$(".playbutton").click(function(){
+	    		$(".pausebutton").fadeToggle('fast'); 
+	    		$(this).fadeToggle('fast'); 
+	    		$(".scriptscroll").fadeIn('fast');
+		        $(".active").fadeToggle('fast');
+				snd1.play();
+				snd2.play();
+				snd3.play();
+				snd4.play();
+				snd5.play();
+				snd7.play();
+				snd8.play();
+				snd9.play();
+				snd10.play();
+				snd11.play();
+				snd12.play();
+				snd13.play();
+				snd14.play();
+				snd15.play();
+				snd16.play();
+				snd17.play();
+$(document).ready(function(){
+var tracktime = snd2.currentTime;
+				if (tracktime == 0){
+
+				$(".narratoroneunderline"+".under1").fadeIn('slow');
+				snd1.volume = 1;
+				$(".narratoroneunderline"+".under5").fadeIn('slow');
+				snd5.volume=1;
+				$(".narratoroneunderline"+".under9").fadeIn('slow');
+				snd10.volume=1;
+				$(".narratoroneunderline"+".under13").fadeIn('slow');
+				snd14.volume=1;
+			}
+		});
+$(".showtext").fadeOut('slow'); 
+$(".about").fadeOut('slow'); 
+
+				var elem = $(".scriptscroll");
+				var scrollTime = [480000];
+			 	var scrollHeight = $(".scriptscroll").height;
+				var scrollLength =  scrollHeight - window.height;
+				var scrollStep = scrollTime / scrollLength;
+
+
+		    });  
+
+
+	    	$(".pausebutton").click(function(){
+	    		$(".playbutton").fadeToggle('fast'); 
+	    		$(this).fadeToggle('fast'); 
+	    		// $(".scriptscroll").fadeOut('fast');
+	        	$(".active").fadeToggle('fast');
+
+	        	// triggered = false;
+	        	// clearInterval(interval);
+				snd1.pause();
+				snd2.pause();
+				snd3.pause();
+				snd4.pause();
+				snd5.pause();
+				snd7.pause();
+				snd8.pause();
+				snd9.pause();
+				snd10.pause();
+				snd11.pause();
+				snd12.pause();
+				snd13.pause();
+				snd14.pause();
+				snd15.pause();
+				snd16.pause();								
+				snd17.pause();	
+
+	    });  
+	    	$(".about").click(function(){
+	        $(".abouthidden").fadeToggle('slow'); 
+	        $(".aboutactive").fadeToggle('slow'); 
+	        $(".maintext").fadeToggle('slow'); 
+  
+	    });	
+
+
+
+
+	snd2.addEventListener("timeupdate", function() {
+    var timeleft = document.getElementById('timeleft'),
+        duration = parseInt( snd2.duration ),
+        currentTime = parseInt( snd2.currentTime ),
+        timeLeft = duration - currentTime,
+        s, m;
+    
+    
+    s = timeLeft % 60;
+    m = Math.floor( timeLeft / 60 ) % 60;
+    
+    s = s < 10 ? "0"+s : s;
+    m = m < 10 ? "0"+m : m;
+    
+    timeleft.innerHTML = m+":"+s;
+    
+}, false);
+
+// Countup
+snd2.addEventListener("timeupdate", function() {
+    var timeline = document.getElementById('duration');
+    var s = parseInt(snd2.currentTime % 60);
+    var m = parseInt((snd2.currentTime / 60) % 60);
+    if (s < 10) {
+        timeline.innerHTML = m + ':0' + s;
+    }
+    else {
+        timeline.innerHTML = m + ':' + s;
+    }
+}, false);
+	    
+
+	
+});
+
+
+
+</script>
+
+
+</body>
+</html>
