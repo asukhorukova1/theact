@@ -229,7 +229,7 @@ $(document).ready(function(){
 var interval = setInterval(function(){
 	var tracktime = snd2.currentTime;
 	var scriptscroll = $(".scriptscroll");
-	var scrollscroll  = (tracktime / scriptscroll.outerHeight())*10000;
+	var scrollscroll  = (tracktime / scriptscroll.outerHeight())*9000;
 	console.log (tracktime);
     console.log(scrollscroll);
     if (!triggered && tracktime > 0 ) {
